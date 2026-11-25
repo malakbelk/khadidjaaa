@@ -1,0 +1,634 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Intergalactic Best Friend Treaty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+/* Layout: one centered glass treaty card that swaps for a framed certificate; fixed starfield behind everything. */
+:root {
+  --bg: #0F0720;
+  --violet: #6D28D9;
+  --amethyst: #9333EA;
+  --lav: #C084FC;
+  --star: #F8FAFC;
+  --gold: #FBBF24;
+  --coral: #F43F5E;
+  --coral-deep: #E11D48;
+  --muted: rgba(248, 250, 252, 0.8);
+  --card: rgba(109, 40, 217, 0.26);
+  --card-edge: rgba(192, 132, 252, 0.32);
+  --clause: rgba(24, 9, 54, 0.68);
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Space Grotesk", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: "Great Vibes", "Brush Script MT", cursive;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 36rem at 15% -10%, rgba(109, 40, 217, 0.45), transparent 60%),
+    radial-gradient(50rem 34rem at 95% 30%, rgba(147, 51, 234, 0.28), transparent 60%),
+    radial-gradient(40rem 30rem at 10% 100%, rgba(192, 132, 252, 0.16), transparent 60%);
+  background-attachment: fixed;
+  color: var(--star);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px;
+}
+#stars, #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#stars { z-index: 0; }
+#fx { z-index: 60; }
+main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.screen[hidden] { display: none !important; }
+.screen { transition: opacity 0.6s ease, transform 0.6s ease; }
+.screen.leaving { opacity: 0; transform: translateY(-16px) scale(0.96); pointer-events: none; }
+.screen.entering { animation: rise 0.9s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px) scale(0.96); } to { opacity: 1; transform: none; } }
+
+/* ---------- Treaty ---------- */
+.treaty {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 28px;
+  padding: clamp(20px, 5vw, 40px);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px -30px rgba(109, 40, 217, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.deco { position: absolute; pointer-events: none; }
+.deco.moon { top: -22px; right: 14px; width: 54px; animation: bob 7s ease-in-out infinite; }
+.deco.saturn { bottom: -34px; left: -10px; width: 92px; animation: bob 9s ease-in-out infinite reverse; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-10px) rotate(4deg); } }
+.head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  background: rgba(15, 7, 32, 0.55);
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  box-shadow: 0 0 22px rgba(192, 132, 252, 0.45), inset 0 0 12px rgba(192, 132, 252, 0.18);
+  animation: glow 3.4s ease-in-out infinite;
+}
+@keyframes glow { 50% { box-shadow: 0 0 34px rgba(192, 132, 252, 0.8), inset 0 0 16px rgba(192, 132, 252, 0.3); } }
+.astro { width: 108px; filter: drop-shadow(0 0 18px rgba(192, 132, 252, 0.6)); animation: float 5.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-12px) rotate(5deg); } }
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 7.4vw, 3.3rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--gold); text-shadow: 0 0 28px rgba(251, 191, 36, 0.45); }
+.intro { margin: 18px auto 24px; max-width: 46ch; text-align: center; color: var(--muted); text-wrap: balance; }
+.clauses { display: grid; gap: 14px; }
+.clause {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--clause);
+  border: 1px solid rgba(192, 132, 252, 0.22);
+}
+.clause .ico {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 25%, rgba(192, 132, 252, 0.5), rgba(109, 40, 217, 0.35));
+  border: 1px solid rgba(192, 132, 252, 0.5);
+  box-shadow: 0 0 22px rgba(147, 51, 234, 0.5);
+}
+.clause .ico svg { width: 34px; height: 34px; }
+.clause h2 { margin: 2px 0 4px; font-family: var(--font-display); font-size: 1.2rem; color: var(--lav); }
+.clause p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+.clause p b { color: var(--star); font-weight: 700; }
+.ask { margin: 30px 0 6px; text-align: center; font-family: var(--font-display); font-size: clamp(1.25rem, 4.6vw, 1.7rem); font-weight: 700; text-wrap: balance; }
+.status { margin: 0; text-align: center; min-height: 1.6em; color: var(--lav); font-size: 0.9rem; letter-spacing: 0.04em; }
+.excuse {
+  margin: 8px auto 0; min-height: 2.8em; max-width: 36ch; text-align: center;
+  color: var(--gold); font-weight: 500; font-size: 0.95rem; text-wrap: balance;
+}
+.excuse.pop { animation: pop 0.45s ease; }
+@keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: none; opacity: 1; } }
+.choices { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px; margin-top: 14px; min-height: 64px; }
+button { font-family: inherit; cursor: pointer; border: 0; }
+button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.yes {
+  --g: 0;
+  padding: 0.95em 1.5em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(20, 5, 50, 0.7);
+  border-radius: 999px;
+  background: linear-gradient(100deg, #6D28D9 0%, #9333EA 58%, #FBBF24 135%);
+  box-shadow: 0 0 calc(18px + var(--g) * 9px) rgba(147, 51, 234, 0.85), 0 0 calc(8px + var(--g) * 14px) rgba(251, 191, 36, calc(0.25 + var(--g) * 0.07));
+  transition: font-size 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  animation: aura 2.6s ease-in-out infinite;
+}
+.yes:hover { transform: translateY(-2px) scale(1.03); }
+@keyframes aura { 50% { filter: brightness(1.18) saturate(1.1); } }
+.no {
+  padding: 0.85em 1.6em;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FB7185, #E11D48);
+  box-shadow: 0 6px 20px -6px rgba(244, 63, 94, 0.8);
+  touch-action: manipulation;
+}
+.no.flying {
+  position: fixed;
+  z-index: 70;
+  margin: 0;
+  transform: scale(var(--s, 1));
+  transform-origin: 0 0;
+  transition: left 0.45s cubic-bezier(.3, 1.3, .5, 1), top 0.45s cubic-bezier(.3, 1.3, .5, 1), transform 0.35s ease;
+}
+.no-ph { display: inline-block; }
+.trail { position: fixed; z-index: 69; pointer-events: none; color: var(--gold); text-shadow: 0 0 12px var(--lav); animation: trail 1.4s ease-out forwards; }
+@keyframes trail { 0% { opacity: 0; transform: scale(0.3) rotate(0); } 25% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5) rotate(120deg) translateY(-12px); } }
+.notary { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 26px; color: rgba(248, 250, 252, 0.6); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.notary svg { width: 44px; height: 44px; flex: none; }
+
+/* ---------- Certificate ---------- */
+.cert-wrap { max-width: 640px; margin: 0 auto; }
+.cert {
+  position: relative;
+  padding: 10px;
+  border: 3px solid var(--gold);
+  border-radius: 8px;
+  background: linear-gradient(160deg, #3b1585, #261058 55%, #1a0a3d);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35), 0 0 60px rgba(147, 51, 234, 0.55), 0 30px 70px -30px #000;
+  animation: certglow 5s ease-in-out infinite;
+}
+@keyframes certglow { 50% { box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.5), 0 0 90px rgba(192, 132, 252, 0.7), 0 30px 70px -30px #000; } }
+.cert-in {
+  position: relative;
+  border: 2px dotted var(--lav);
+  border-radius: 4px;
+  padding: clamp(48px, 9vw, 60px) clamp(22px, 6vw, 46px) clamp(24px, 5vw, 34px);
+  text-align: center;
+  overflow: hidden;
+}
+.cert-in::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(192, 132, 252, 0.25), transparent 55%);
+}
+.corner { position: absolute; width: 74px; height: 74px; color: var(--gold); }
+.corner.tl { top: 2px; left: 2px; }
+.corner.tr { top: 2px; right: 2px; transform: scaleX(-1); }
+.corner.bl { bottom: 2px; left: 2px; transform: scaleY(-1); }
+.corner.br { bottom: 2px; right: 2px; transform: scale(-1, -1); }
+.cert-in > * { position: relative; }
+.crest { width: 64px; margin: 0 auto 6px; display: block; }
+.eyebrow { margin: 0; color: var(--lav); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; text-wrap: balance; }
+.cert h2 {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.3rem, 5.6vw, 2.15rem);
+  letter-spacing: 0.05em;
+  line-height: 1.18;
+  color: var(--gold);
+  text-shadow: 0 0 26px rgba(251, 191, 36, 0.35);
+  text-wrap: balance;
+}
+.rule { height: 12px; margin: 16px auto; width: min(260px, 70%); color: var(--lav); }
+.certifies { margin: 0 auto 14px; max-width: 44ch; color: var(--muted); font-size: 0.98rem; }
+.certifies b { color: var(--star); }
+.pledges { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 12px; max-width: 46ch; text-align: left; }
+.pledges li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; font-family: var(--font-display); font-size: clamp(1rem, 3.8vw, 1.15rem); line-height: 1.4; }
+.pledges svg { width: 18px; height: 18px; margin-top: 4px; color: var(--gold); }
+.sigs { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; gap: clamp(6px, 2vw, 18px); margin-top: 32px; }
+.sig .script { font-family: var(--font-script); font-size: clamp(1.7rem, 7vw, 2.5rem); line-height: 1.1; color: var(--star); border-bottom: 1px solid rgba(251, 191, 36, 0.6); padding-bottom: 2px; overflow-wrap: anywhere; }
+.sig .role { display: block; margin-top: 6px; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lav); font-weight: 700; text-wrap: balance; }
+.seal { width: clamp(84px, 22vw, 124px); filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.55)); animation: spin 40s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.stamp { margin: 26px 0 0; padding-top: 14px; border-top: 1px solid rgba(192, 132, 252, 0.3); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; font-weight: 700; text-wrap: balance; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+.btn {
+  padding: 0.9em 1.5em; border-radius: 999px; font-size: 0.95rem; font-weight: 700; color: #fff;
+  background: linear-gradient(100deg, #6D28D9, #9333EA); box-shadow: 0 0 24px rgba(147, 51, 234, 0.7); transition: transform 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; border: 1px solid var(--lav); box-shadow: none; color: var(--lav); }
+.toast {
+  position: fixed; z-index: 80; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 30px); opacity: 0; pointer-events: none;
+  max-width: min(92vw, 420px); padding: 14px 22px; border-radius: 16px; text-align: center; font-weight: 700;
+  background: linear-gradient(100deg, #6D28D9, #9333EA); border: 1px solid var(--lav);
+  box-shadow: 0 0 36px rgba(192, 132, 252, 0.85); transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+@media (max-width: 420px) {
+  .clause { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 14px; }
+  .clause .ico { width: 44px; height: 44px; }
+  .clause .ico svg { width: 27px; height: 27px; }
+  .corner { width: 42px; height: 42px; }
+  .deco.saturn { width: 70px; left: -6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}
+</style>
+
+<!-- shared SVG sprite -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDE68A"/><stop offset="0.5" stop-color="#FBBF24"/><stop offset="1" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="lavG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9D5FF"/><stop offset="1" stop-color="#9333EA"/>
+    </linearGradient>
+    <symbol id="star4" viewBox="-10 -10 20 20"><path d="M0-9 2.2-2.2 9 0 2.2 2.2 0 9-2.2 2.2-9 0-2.2-2.2Z" fill="currentColor"/></symbol>
+    <symbol id="corner" viewBox="0 0 80 80">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <path d="M6 6 L30 14 L26 38 L52 30 L48 58 L74 52"/>
+        <path d="M30 14 L56 8"/><path d="M26 38 L8 52"/>
+      </g>
+      <g fill="currentColor">
+        <use href="#star4" x="0" y="0" width="14" height="14"/>
+        <use href="#star4" x="23" y="7" width="14" height="14"/>
+        <use href="#star4" x="21" y="33" width="10" height="10"/>
+        <use href="#star4" x="45" y="25" width="12" height="12"/>
+        <circle cx="48" cy="58" r="2.4"/><circle cx="74" cy="52" r="2"/><circle cx="56" cy="8" r="2"/><circle cx="8" cy="52" r="2"/>
+      </g>
+    </symbol>
+    <symbol id="seal" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="64" fill="none" stroke="url(#goldG)" stroke-width="7" stroke-dasharray="5 2.6"/>
+      <circle cx="70" cy="70" r="60" fill="url(#goldG)"/>
+      <circle cx="70" cy="70" r="57" fill="none" stroke="#7a4a00" stroke-width="1"/>
+      <circle cx="70" cy="70" r="33" fill="#2a0f5c" stroke="#7a4a00" stroke-width="1.5"/>
+      <path id="sealPath" d="M 24,70 A 46,46 0 1,1 116,70 A 46,46 0 1,1 24,70" fill="none"/>
+      <text font-family="Space Grotesk, sans-serif" font-weight="700" font-size="8.6" fill="#4a2900"><textPath href="#sealPath" textLength="282" lengthAdjust="spacing">100% UNIVERSALLY BINDING • NO REFUNDS • </textPath></text>
+      <ellipse cx="70" cy="71" rx="25" ry="7.5" fill="none" stroke="#C084FC" stroke-width="2.2" transform="rotate(-20 70 71)"/>
+      <circle cx="70" cy="70" r="13" fill="url(#goldG)"/>
+      <path d="M57 74 Q70 80 83 66" fill="none" stroke="#C084FC" stroke-width="2.2" transform="rotate(0)"/>
+      <g fill="#FDE68A"><use href="#star4" x="40" y="46" width="8" height="8"/><use href="#star4" x="92" y="86" width="7" height="7"/><use href="#star4" x="88" y="42" width="6" height="6"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main>
+  <!-- SCREEN 1 -->
+  <section class="screen" id="s1" aria-labelledby="title1">
+    <div class="treaty">
+      <svg class="deco moon" viewBox="0 0 60 60" aria-hidden="true"><path d="M40 6a26 26 0 1 0 14 40A22 22 0 0 1 40 6Z" fill="url(#goldG)"/><circle cx="22" cy="34" r="3" fill="#B45309" opacity=".35"/><circle cx="30" cy="46" r="2" fill="#B45309" opacity=".35"/></svg>
+      <svg class="deco saturn" viewBox="0 0 100 70" aria-hidden="true">
+        <ellipse cx="50" cy="36" rx="46" ry="11" fill="none" stroke="#C084FC" stroke-width="4" transform="rotate(-18 50 36)" opacity=".55"/>
+        <circle cx="50" cy="35" r="22" fill="url(#lavG)"/>
+        <path d="M30 40 Q50 50 70 30" fill="none" stroke="#6D28D9" stroke-width="3" opacity=".5"/>
+        <path d="M6 44 Q50 62 94 26" fill="none" stroke="#C084FC" stroke-width="4" transform="rotate(0)" stroke-linecap="round" opacity="0"/>
+        <ellipse cx="50" cy="36" rx="46" ry="11" fill="none" stroke="#E9D5FF" stroke-width="3" stroke-dasharray="0 999 80 999" transform="rotate(-18 50 36)"/>
+      </svg>
+
+      <header class="head">
+        <span class="badge">Star-Date 2026 • Intergalactic Law • Non-Negotiable</span>
+        <svg class="astro" viewBox="0 0 120 130" role="img" aria-label="A cute floating astronaut">
+          <rect x="22" y="48" width="18" height="42" rx="8" fill="#9333EA"/>
+          <rect x="80" y="48" width="18" height="42" rx="8" fill="#9333EA"/>
+          <path d="M42 66 L18 84" stroke="#E9D5FF" stroke-width="13" stroke-linecap="round"/>
+          <path d="M78 66 L104 56" stroke="#E9D5FF" stroke-width="13" stroke-linecap="round"/>
+          <circle cx="16" cy="86" r="8" fill="#FBBF24"/><circle cx="106" cy="55" r="8" fill="#FBBF24"/>
+          <rect x="38" y="50" width="44" height="50" rx="16" fill="#F8FAFC"/>
+          <rect x="48" y="66" width="24" height="14" rx="4" fill="#6D28D9"/>
+          <circle cx="54" cy="73" r="2.6" fill="#FBBF24"/><circle cx="66" cy="73" r="2.6" fill="#F43F5E"/>
+          <path d="M46 98 L42 120" stroke="#E9D5FF" stroke-width="13" stroke-linecap="round"/>
+          <path d="M74 98 L82 118" stroke="#E9D5FF" stroke-width="13" stroke-linecap="round"/>
+          <ellipse cx="41" cy="122" rx="10" ry="6" fill="#C084FC"/><ellipse cx="85" cy="120" rx="10" ry="6" fill="#C084FC"/>
+          <circle cx="60" cy="34" r="30" fill="#F8FAFC"/>
+          <rect x="36" y="20" width="48" height="29" rx="14" fill="#1a0a3d"/>
+          <path d="M42 27 Q52 22 62 26" fill="none" stroke="#C084FC" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+          <circle cx="52" cy="37" r="2.6" fill="#F8FAFC"/><circle cx="68" cy="37" r="2.6" fill="#F8FAFC"/>
+          <path d="M55 42 Q60 46 65 42" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="45" cy="42" r="3" fill="#FB7185" opacity=".6"/><circle cx="75" cy="42" r="3" fill="#FB7185" opacity=".6"/>
+          <line x1="60" y1="4" x2="60" y2="-2" stroke="#E9D5FF" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="-3" r="3.4" fill="#FBBF24"/>
+        </svg>
+        <h1 id="title1">Official Intergalactic Pre-Marital <em>Best Friend</em> Treaty</h1>
+      </header>
+
+      <p class="intro">Before Khadija blasts off into marriage with Ramy, she must legally sign the following universal terms:</p>
+
+      <div class="clauses">
+        <article class="clause">
+          <div class="ico">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9" fill="#E9D5FF"/><path d="M13 22 Q20 27 27 17" fill="none" stroke="#9333EA" stroke-width="2.4"/><ellipse cx="20" cy="20" rx="17" ry="5" fill="none" stroke="#FBBF24" stroke-width="2.2" transform="rotate(-22 20 20)"/><circle cx="33" cy="9" r="1.6" fill="#FBBF24"/></svg>
+          </div>
+          <div>
+            <h2>The Gravity Clause</h2>
+            <p>Khadija officially admits that she loves <b>Malak</b> more than Ramy, across this galaxy and every parallel universe. Best friend seniority is a law of physics.</p>
+          </div>
+        </article>
+        <article class="clause">
+          <div class="ico">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c6 5 8 13 6 22H14C12 16 14 8 20 3Z" fill="#E9D5FF"/><circle cx="20" cy="15" r="3.6" fill="#6D28D9"/><path d="M14 20 6 28l8-1ZM26 20l8 8-8-1Z" fill="#FBBF24"/><path d="M16 27h8l-4 9Z" fill="#F43F5E"/></svg>
+          </div>
+          <div>
+            <h2>The Orbit Clause</h2>
+            <p>Getting married does not mean disappearing into a black hole. Khadija guarantees regular <b>frit omlette dates, long voice notes</b>, and hangout time even after the wedding.</p>
+          </div>
+        </article>
+        <article class="clause">
+          <div class="ico">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 4 12l9 8 7-12 7 12 9-8-2 18Z" fill="url(#goldG)"/><rect x="6" y="31" width="28" height="5" rx="2" fill="#FBBF24"/><circle cx="4" cy="12" r="2.2" fill="#FDE68A"/><circle cx="20" cy="8" r="2.2" fill="#FDE68A"/><circle cx="36" cy="12" r="2.2" fill="#FDE68A"/></svg>
+          </div>
+          <div>
+            <h2>The Star-Naming Clause</h2>
+            <p>Khadija agrees to name her future daughter <b>Malak</b>, the brightest star in the universe.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="ask">Do you, Khadija, accept these cosmic terms?</p>
+      <p class="status" id="status" aria-live="polite">Awaiting launch confirmation...</p>
+      <p class="excuse" id="excuse" aria-live="polite"></p>
+
+      <div class="choices" id="choices">
+        <button class="yes" id="yes" type="button">YES, I AGREE 🚀👑</button>
+        <button class="no" id="no" type="button">No</button>
+      </div>
+
+      <div class="notary">
+        <svg viewBox="0 0 140 140" aria-hidden="true"><use href="#seal"/></svg>
+        <span>Witnessed by Astronaut Malak<br>Notary of the Cosmic Council</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 2 -->
+  <section class="screen" id="s2" hidden aria-labelledby="title2">
+    <div class="cert-wrap">
+      <div class="cert" id="cert">
+        <div class="cert-in">
+          <svg class="corner tl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+          <svg class="corner tr" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+          <svg class="corner bl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+          <svg class="corner br" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+
+          <svg class="crest" viewBox="0 0 100 70" aria-hidden="true">
+            <ellipse cx="50" cy="36" rx="46" ry="11" fill="none" stroke="#FBBF24" stroke-width="3" transform="rotate(-18 50 36)" opacity=".7"/>
+            <circle cx="50" cy="35" r="20" fill="url(#goldG)"/>
+            <ellipse cx="50" cy="36" rx="46" ry="11" fill="none" stroke="#FDE68A" stroke-width="3" stroke-dasharray="0 999 80 999" transform="rotate(-18 50 36)"/>
+          </svg>
+          <p class="eyebrow">By order of the Galactic Council of Best Friends</p>
+          <h2 id="title2">Certificate of Unbreakable Cosmic Best Friendship</h2>
+          <svg class="rule" viewBox="0 0 260 12" aria-hidden="true"><path d="M0 6H108M152 6H260" stroke="currentColor" stroke-width="1" opacity=".6"/><use href="#star4" x="118" y="0" width="24" height="12" fill="#FBBF24" style="color:#FBBF24"/></svg>
+          <p class="certifies">This stellar document officially certifies that <b>Khadija</b> has willingly and joyfully agreed across all galaxies that:</p>
+          <ul class="pledges">
+            <li><svg viewBox="-10 -10 20 20" aria-hidden="true"><use href="#star4" x="-10" y="-10" width="20" height="20"/></svg><span>Malak holds the undisputed #1 spot in her heart (ahead of Ramy, to the moon and back).</span></li>
+            <li><svg viewBox="-10 -10 20 20" aria-hidden="true"><use href="#star4" x="-10" y="-10" width="20" height="20"/></svg><span>Marriage will never pull her into a black hole away from best-friend frit omlette dates.</span></li>
+            <li><svg viewBox="-10 -10 20 20" aria-hidden="true"><use href="#star4" x="-10" y="-10" width="20" height="20"/></svg><span>Her future daughter will proudly carry the name Malak.</span></li>
+          </ul>
+
+          <div class="sigs">
+            <div class="sig"><div class="script">Khadija</div><span class="role">The Astronaut Bride-to-Be</span></div>
+            <svg class="seal" viewBox="0 0 140 140" role="img" aria-label="100% universally binding, no refunds"><use href="#seal"/></svg>
+            <div class="sig"><div class="script">Malak</div><span class="role">The Favorite Best Friend in the Universe</span></div>
+          </div>
+          <p class="stamp">Screenshot-Protected • Valid Forever &amp; Beyond • Sorry Ramy</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+
+<script>
+(function () {
+  "use strict";
+  var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- Twinkling starfield ---------- */
+  var sc = $("stars"), sx = sc.getContext("2d"), W = 0, H = 0, stars = [], shoot = null;
+  function sizeCanvas(c, ctx) {
+    var d = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    c.width = W * d; c.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+  }
+  var fx = $("fx"), fc = fx.getContext("2d");
+  function resize() {
+    sizeCanvas(sc, sx); sizeCanvas(fx, fc);
+    stars = [];
+    var n = Math.min(260, Math.round(W * H / 6500));
+    for (var i = 0; i < n; i++) stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.3 + 0.3, p: Math.random() * 6.28, s: Math.random() * 1.6 + 0.4, g: Math.random() < 0.12 });
+    clampNo();
+  }
+  function drawStars(t) {
+    sx.clearRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i], a = reduced ? 0.7 : 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t / 1000 * s.s + s.p));
+      sx.globalAlpha = a; sx.fillStyle = s.g ? "#FBBF24" : "#F8FAFC";
+      sx.beginPath(); sx.arc(s.x, s.y, s.r, 0, 6.283); sx.fill();
+    }
+    sx.globalAlpha = 1;
+    if (!reduced) {
+      if (!shoot && Math.random() < 0.004) shoot = { x: Math.random() * W * 0.8 + W * 0.2, y: Math.random() * H * 0.4, l: 0 };
+      if (shoot) {
+        var g = sx.createLinearGradient(shoot.x, shoot.y, shoot.x + 110, shoot.y - 55);
+        g.addColorStop(0, "rgba(248,250,252,0.95)"); g.addColorStop(1, "rgba(192,132,252,0)");
+        sx.strokeStyle = g; sx.lineWidth = 2; sx.beginPath(); sx.moveTo(shoot.x, shoot.y); sx.lineTo(shoot.x + 110, shoot.y - 55); sx.stroke();
+        shoot.x -= 9; shoot.y += 4.5; shoot.l++;
+        if (shoot.l > 60) shoot = null;
+      }
+      requestAnimationFrame(drawStars);
+    }
+  }
+
+  /* ---------- Runaway No button ---------- */
+  var excuses = ["Nice try, Ramy!", "Houston, we have a problem!", "Error 404: Taste lost in space", "Who else will listen to your rants?", "Think about baby Malak!", "Black hole detected, try YES", "Resistance is futile across all galaxies"];
+  var statuses = ["Awaiting launch confirmation...", "Mission Control says nice try...", "Astronaut Malak is watching...", "Signal lost. The No button has left orbit...", "Mission Control is shaking its head...", "The cosmos strongly suggests YES...", "Even the moon is rooting for Malak..."];
+  var yes = $("yes"), no = $("no"), choices = $("choices"), statusEl = $("status"), excuseEl = $("excuse");
+  var tries = 0, moved = false, placeholder = null, lastMove = 0, scale = 1;
+
+  function rect(el) { return el.getBoundingClientRect(); }
+  function sparkle(cx, cy) {
+    for (var i = 0; i < 6; i++) {
+      var s = document.createElement("span");
+      s.className = "trail"; s.textContent = i % 2 ? "✦" : "✧";
+      s.style.left = (cx + (Math.random() - 0.5) * 70) + "px";
+      s.style.top = (cy + (Math.random() - 0.5) * 40) + "px";
+      s.style.fontSize = (10 + Math.random() * 14) + "px";
+      s.style.animationDelay = (i * 0.08) + "s";
+      document.body.appendChild(s);
+      (function (n) { setTimeout(function () { n.remove(); }, 1800); })(s);
+    }
+  }
+  function clampNo() {
+    if (!moved) return;
+    var vw = document.documentElement.clientWidth, vh = window.innerHeight, m = 10;
+    var bw = no.offsetWidth * scale, bh = no.offsetHeight * scale;
+    var l = parseFloat(no.style.left) || 0, t = parseFloat(no.style.top) || 0;
+    no.style.left = Math.max(m, Math.min(l, vw - bw - m)) + "px";
+    no.style.top = Math.max(m, Math.min(t, vh - bh - m)) + "px";
+  }
+  function runAway() {
+    var now = performance.now();
+    if (now - lastMove < 220) return;
+    lastMove = now;
+    var r0 = rect(no);
+    if (!moved) {
+      placeholder = document.createElement("span");
+      placeholder.className = "no-ph";
+      placeholder.style.width = r0.width + "px"; placeholder.style.height = r0.height + "px";
+      choices.insertBefore(placeholder, no);
+      no.style.left = r0.left + "px"; no.style.top = r0.top + "px";
+      document.body.appendChild(no);
+      no.classList.add("flying");
+      void no.offsetWidth;
+      moved = true;
+    }
+    sparkle(r0.left + r0.width / 2, r0.top + r0.height / 2);
+    tries++;
+    scale = Math.max(0.5, 1 - tries * 0.07);
+    no.style.setProperty("--s", scale);
+
+    var vw = document.documentElement.clientWidth, vh = window.innerHeight, m = 12;
+    var bw = no.offsetWidth * scale, bh = no.offsetHeight * scale;
+    var yr = rect(yes), x = m, y = m, ok = false;
+    for (var i = 0; i < 40 && !ok; i++) {
+      x = m + Math.random() * Math.max(0, vw - bw - 2 * m);
+      y = m + Math.random() * Math.max(0, vh - bh - 2 * m);
+      var hitYes = x < yr.right + 14 && x + bw > yr.left - 14 && y < yr.bottom + 14 && y + bh > yr.top - 14;
+      var farEnough = Math.abs(x - r0.left) + Math.abs(y - r0.top) > Math.min(vw, vh) * 0.3;
+      ok = !hitYes && farEnough;
+    }
+    no.style.left = x + "px"; no.style.top = y + "px";
+
+    var lvl = Math.min(tries, 8);
+    yes.style.fontSize = (1 + lvl * 0.065) + "rem";
+    yes.style.setProperty("--g", lvl);
+    statusEl.textContent = statuses[Math.min(tries, statuses.length - 1)];
+    excuseEl.textContent = excuses[(tries - 1) % excuses.length];
+    excuseEl.classList.remove("pop"); void excuseEl.offsetWidth; excuseEl.classList.add("pop");
+  }
+  no.addEventListener("mouseenter", runAway);
+  no.addEventListener("focus", runAway);
+  no.addEventListener("touchstart", function (e) { e.preventDefault(); runAway(); }, { passive: false });
+  no.addEventListener("click", function (e) { e.preventDefault(); runAway(); });
+
+  function resetNo() {
+    if (moved) {
+      no.classList.remove("flying"); no.style.left = ""; no.style.top = ""; no.style.removeProperty("--s");
+      if (placeholder) { choices.insertBefore(no, placeholder); placeholder.remove(); placeholder = null; }
+    }
+    moved = false; tries = 0; scale = 1;
+    yes.style.fontSize = ""; yes.style.removeProperty("--g");
+    statusEl.textContent = statuses[0]; excuseEl.textContent = "";
+  }
+
+  /* ---------- Screen switching ---------- */
+  var s1 = $("s1"), s2 = $("s2");
+  yes.addEventListener("click", function () {
+    s1.classList.add("leaving");
+    no.hidden = true;
+    setTimeout(function () {
+      s1.hidden = true; s1.classList.remove("leaving");
+      s2.hidden = false; s2.classList.add("entering");
+      window.scrollTo(0, 0);
+      burst();
+      setTimeout(function () { s2.classList.remove("entering"); }, 1000);
+    }, 600);
+  });
+
+  /* ---------- Copy ---------- */
+
+  /* ---------- Celebration canvas ---------- */
+  var parts = [], running = false, spawnUntil = 0, endAt = 0, frame = 0;
+  var COLS = ["#6D28D9", "#9333EA", "#C084FC", "#FBBF24", "#F8FAFC", "#FDE68A"];
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+  function confetti(top) {
+    parts.push({ k: "c", x: rnd(0, W), y: top ? -12 : rnd(-H * 0.5, -10), vx: rnd(-1, 1), vy: rnd(1.2, 3), r: rnd(0, 6.28), vr: rnd(-0.25, 0.25), w: rnd(6, 12), h: rnd(3, 7), c: pick(COLS), ph: rnd(0, 6) });
+  }
+  function burst() {
+    var n = reduced ? 40 : 160, i;
+    for (i = 0; i < n; i++) confetti(false);
+    for (i = 0; i < (reduced ? 4 : 16); i++) parts.push({ k: "h", x: rnd(0, W), y: H + rnd(20, 260), vy: -rnd(1, 2.2), s: rnd(14, 30), c: pick(["#F472B6", "#C084FC", "#FBBF24", "#FB7185"]), ph: rnd(0, 6) });
+    for (i = 0; i < (reduced ? 2 : 6); i++) parts.push({ k: "p", x: rnd(0, W), y: H + rnd(40, 400), vy: -rnd(0.5, 1.1), r: rnd(14, 32), c: pick(["#C084FC", "#FBBF24", "#9333EA", "#F472B6"]), ring: Math.random() < 0.6, a: rnd(-0.4, 0.4), ph: rnd(0, 6) });
+    for (i = 0; i < (reduced ? 1 : 5); i++) parts.push({ k: "a", x: rnd(30, W - 30), y: H + rnd(40, 500), vy: -rnd(0.7, 1.4), s: rnd(28, 44), ph: rnd(0, 6) });
+    for (i = 0; i < (reduced ? 0 : 7); i++) (function (d) { setTimeout(function () { parts.push({ k: "s", x: rnd(W * 0.3, W + 80), y: rnd(-40, H * 0.4), vx: -rnd(9, 14), vy: rnd(4, 7) }); }, d); })(i * 450);
+    var now = performance.now();
+    spawnUntil = now + (reduced ? 0 : 4500); endAt = now + 9000;
+    if (!running) { running = true; requestAnimationFrame(loop); }
+  }
+  function heart(x, y, s) {
+    fc.beginPath(); fc.moveTo(x, y + s * 0.3);
+    fc.bezierCurveTo(x, y - s * 0.2, x - s * 0.55, y - s * 0.2, x - s * 0.55, y + s * 0.15);
+    fc.bezierCurveTo(x - s * 0.55, y + s * 0.5, x, y + s * 0.7, x, y + s * 0.95);
+    fc.bezierCurveTo(x, y + s * 0.7, x + s * 0.55, y + s * 0.5, x + s * 0.55, y + s * 0.15);
+    fc.bezierCurveTo(x + s * 0.55, y - s * 0.2, x, y - s * 0.2, x, y + s * 0.3); fc.fill();
+  }
+  function loop(now) {
+    frame++;
+    fc.clearRect(0, 0, W, H);
+    if (now < spawnUntil && frame % 3 === 0) { confetti(true); confetti(true); }
+    for (var i = parts.length - 1; i >= 0; i--) {
+      var p = parts[i], dead = false;
+      fc.save();
+      if (p.k === "c") {
+        p.vy = Math.min(p.vy + 0.02, 3.6); p.x += p.vx + Math.sin(frame * 0.05 + p.ph) * 0.7; p.y += p.vy; p.r += p.vr;
+        fc.translate(p.x, p.y); fc.rotate(p.r); fc.fillStyle = p.c; fc.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 1.3)) + 1);
+        dead = p.y > H + 20;
+      } else if (p.k === "h") {
+        p.y += p.vy; p.x += Math.sin(frame * 0.04 + p.ph) * 0.8;
+        fc.globalAlpha = Math.min(1, Math.max(0, p.y / 120)); fc.fillStyle = p.c; fc.shadowColor = p.c; fc.shadowBlur = 14; heart(p.x, p.y, p.s);
+        dead = p.y < -40;
+      } else if (p.k === "p") {
+        p.y += p.vy; p.x += Math.sin(frame * 0.015 + p.ph) * 0.4;
+        fc.translate(p.x, p.y); fc.rotate(p.a);
+        var g = fc.createRadialGradient(-p.r * 0.3, -p.r * 0.3, 2, 0, 0, p.r); g.addColorStop(0, "#fff"); g.addColorStop(0.25, p.c); g.addColorStop(1, "#2a0f5c");
+        fc.fillStyle = g; fc.beginPath(); fc.arc(0, 0, p.r, 0, 6.283); fc.fill();
+        if (p.ring) { fc.strokeStyle = "rgba(251,191,36,0.85)"; fc.lineWidth = 3; fc.beginPath(); fc.ellipse(0, 0, p.r * 1.7, p.r * 0.45, -0.3, 0, 6.283); fc.stroke(); }
+        dead = p.y < -80;
+      } else if (p.k === "a") {
+        p.y += p.vy; p.x += Math.sin(frame * 0.02 + p.ph) * 0.9;
+        fc.translate(p.x, p.y); fc.rotate(Math.sin(frame * 0.03 + p.ph) * 0.4); fc.font = p.s + "px serif"; fc.textAlign = "center"; fc.textBaseline = "middle"; fc.fillText("🧑‍🚀", 0, 0);
+        dead = p.y < -60;
+      } else if (p.k === "s") {
+        p.x += p.vx; p.y += p.vy;
+        var tg = fc.createLinearGradient(p.x, p.y, p.x - p.vx * 12, p.y - p.vy * 12);
+        tg.addColorStop(0, "rgba(255,255,255,0.95)"); tg.addColorStop(0.3, "rgba(251,191,36,0.6)"); tg.addColorStop(1, "rgba(192,132,252,0)");
+        fc.strokeStyle = tg; fc.lineWidth = 3; fc.lineCap = "round"; fc.beginPath(); fc.moveTo(p.x, p.y); fc.lineTo(p.x - p.vx * 12, p.y - p.vy * 12); fc.stroke();
+        dead = p.x < -200 || p.y > H + 60;
+      }
+      fc.restore();
+      if (dead) parts.splice(i, 1);
+    }
+    if (parts.length || now < endAt) requestAnimationFrame(loop);
+    else { running = false; fc.clearRect(0, 0, W, H); }
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(drawStars);
+})();
+</script>
+
+</body></html>
