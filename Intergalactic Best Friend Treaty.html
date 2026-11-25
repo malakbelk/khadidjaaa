@@ -5,7 +5,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
 <style>
-/* Layout: one centered glass treaty card that swaps for a framed certificate; fixed starfield behind everything. */
 :root {
   --bg: #0F0720;
   --violet: #6D28D9;
@@ -53,7 +52,6 @@ main { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
 .screen.entering { animation: rise 0.9s cubic-bezier(.2, .8, .2, 1) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(26px) scale(0.96); } to { opacity: 1; transform: none; } }
 
-/* ---------- Treaty ---------- */
 .treaty {
   position: relative;
   background: var(--card);
@@ -170,7 +168,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 .notary { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 26px; color: rgba(248, 250, 252, 0.6); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .notary svg { width: 44px; height: 44px; flex: none; }
 
-/* ---------- Certificate ---------- */
 .cert-wrap { max-width: 640px; margin: 0 auto; }
 .cert {
   position: relative;
@@ -253,7 +250,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 }
 </style>
 
-<!-- shared SVG sprite -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
@@ -295,7 +291,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 <canvas id="fx" aria-hidden="true"></canvas>
 
 <main>
-  <!-- SCREEN 1 -->
   <section class="screen" id="s1" aria-labelledby="title1">
     <div class="treaty">
       <svg class="deco moon" viewBox="0 0 60 60" aria-hidden="true"><path d="M40 6a26 26 0 1 0 14 40A22 22 0 0 1 40 6Z" fill="url(#goldG)"/><circle cx="22" cy="34" r="3" fill="#B45309" opacity=".35"/><circle cx="30" cy="46" r="2" fill="#B45309" opacity=".35"/></svg>
@@ -380,7 +375,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     </div>
   </section>
 
-  <!-- SCREEN 2 -->
   <section class="screen" id="s2" hidden aria-labelledby="title2">
     <div class="cert-wrap">
       <div class="cert" id="cert">
@@ -425,7 +419,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $ = function (id) { return document.getElementById(id); };
 
-  /* ---------- Twinkling starfield ---------- */
   var sc = $("stars"), sx = sc.getContext("2d"), W = 0, H = 0, stars = [], shoot = null;
   function sizeCanvas(c, ctx) {
     var d = Math.min(window.devicePixelRatio || 1, 2);
@@ -461,7 +454,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     }
   }
 
-  /* ---------- Runaway No button ---------- */
   var excuses = ["Nice try, Ramy!", "Houston, we have a problem!", "Error 404: Taste lost in space", "Who else will listen to your rants?", "Think about baby Malak!", "Black hole detected, try YES", "Resistance is futile across all galaxies"];
   var statuses = ["Awaiting launch confirmation...", "Mission Control says nice try...", "Astronaut Malak is watching...", "Signal lost. The No button has left orbit...", "Mission Control is shaking its head...", "The cosmos strongly suggests YES...", "Even the moon is rooting for Malak..."];
   var yes = $("yes"), no = $("no"), choices = $("choices"), statusEl = $("status"), excuseEl = $("excuse");
@@ -543,7 +535,6 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     statusEl.textContent = statuses[0]; excuseEl.textContent = "";
   }
 
-  /* ---------- Screen switching ---------- */
   var s1 = $("s1"), s2 = $("s2");
   yes.addEventListener("click", function () {
     s1.classList.add("leaving");
@@ -557,9 +548,7 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
     }, 600);
   });
 
-  /* ---------- Copy ---------- */
 
-  /* ---------- Celebration canvas ---------- */
   var parts = [], running = false, spawnUntil = 0, endAt = 0, frame = 0;
   var COLS = ["#6D28D9", "#9333EA", "#C084FC", "#FBBF24", "#F8FAFC", "#FDE68A"];
   function rnd(a, b) { return a + Math.random() * (b - a); }
